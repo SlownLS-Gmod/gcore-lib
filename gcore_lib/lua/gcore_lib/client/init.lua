@@ -6,7 +6,7 @@
 
 GCore.Lib.oldFunctionVguiRegister = GCore.Lib.oldFunctionVguiRegister or vgui.Register
 
--- Panels Registez
+-- Panels Register
 local panels = FindMetaTable("Panel")
 
 local tblEdits = {
