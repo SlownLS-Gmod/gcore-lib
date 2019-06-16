@@ -11,6 +11,8 @@ function PANEL:Init()
 
     self.tblIconNotChecked = GCore.Lib:GetIcon('far',18,"f111")
     self.tblIconChecked = GCore.Lib:GetIcon('far',18,"f192")
+
+    self.colCheckBox = GCore.Lib:GetColor('checkBoxColor')
 end
 
 function PANEL:SetLabel(strText,tblText)
@@ -31,6 +33,15 @@ function PANEL:SetLabel(strText,tblText)
     return self
 end
 
+function PANEL:SetCheckBoxColor(default,to)
+    self.colCheckBox = {
+        default = default,
+        to = to
+    }
+
+    return self
+end
+
 function PANEL:Paint(w,h)
     local tblIcon = self.tblIconNotChecked
     local boolIsChecked = self:GetChecked()
@@ -38,8 +49,8 @@ function PANEL:Paint(w,h)
         self,
         "btnColor",
         { 
-            default = color_white,
-            to = GCore.Lib:GetColor("lightRed")
+            default = self.colCheckBox.default,
+            to = self.colCheckBox.to
         },
         boolIsChecked,
         7

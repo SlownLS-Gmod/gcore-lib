@@ -12,6 +12,11 @@ function PANEL:Init()
     self.lerpValid = 0
 
     self:SetDrawLanguageID(false)
+
+    self.colLabel = GCore.Lib:GetColor("secondary")
+    self.colLabelText = color_white
+    self.colValid = GCore.Lib:GetColor("valid")
+    self.colBackground = GCore.Lib:GetColor("primary")
 end
 
 function PANEL:SetLabel(strText,tblIcon)
@@ -34,13 +39,13 @@ function PANEL:SetLabel(strText,tblIcon)
     pLabel:SetPos(self:GetPos())
     pLabel:SetSize(intW,self:GetTall())
     pLabel.Paint = function(p,w,h)
-        draw.RoundedBox(0,0,0,w,h,GCore.Lib:GetColor("lightBlack"))
+        draw.RoundedBox(0,0,0,w,h,self.colLabel)
 
         if self.tblIcon then 
-            draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,self.tblIcon.infos.size + 5,h/2,color_white,1,1)
-            draw.SimpleText(self.strLabel,self:GetFont(),tblIcon.size+25,h/2,color_white,0,1)
+            draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,self.tblIcon.infos.size + 5,h/2,self.colLabelText,1,1)
+            draw.SimpleText(self.strLabel,self:GetFont(),tblIcon.size+25,h/2,self.colLabelText,0,1)
         else
-            draw.SimpleText(self.strLabel,self:GetFont(),w/2,h/2,color_white,1,1)
+            draw.SimpleText(self.strLabel,self:GetFont(),w/2,h/2,self.colLabelText,1,1)
         end
     end
 
@@ -52,8 +57,26 @@ function PANEL:SetLabel(strText,tblIcon)
     return self 
 end 
 
+function PANEL:SetLabelColor(col)
+    self.colLabel = col
+
+    return self
+end
+
+function PANEL:SetLabelTextColor(col)
+    self.colLabelText = col
+
+    return self
+end
+
+function PANEL:SetBackgroundColor(col)
+    self.colBackground = col
+
+    return self
+end
+
 function PANEL:Paint(w,h)
-    draw.RoundedBox(0,0,0,w,h,GCore.Lib:GetColor("black"))
+    draw.RoundedBox(0,0,0,w,h,self.colBackground)
 
     local intLerpTime = 5
 
@@ -63,7 +86,7 @@ function PANEL:Paint(w,h)
         self.lerpValid = Lerp(FrameTime()*intLerpTime,self.lerpValid,0)
     end
 
-    surface.SetDrawColor(GCore.Lib:GetColor('green'))
+    surface.SetDrawColor(self.colValid)
     surface.DrawRect(w/2 - self.lerpValid / 2,h-1,self.lerpValid,1)
 
 	if ( self.GetPlaceholderText && self.GetPlaceholderColor && self:GetPlaceholderText() && self:GetPlaceholderText():Trim() != "" && self:GetPlaceholderColor() && ( !self:GetText() || self:GetText() == "" ) ) then

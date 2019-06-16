@@ -8,6 +8,9 @@ local PANEL = {}
 
 function PANEL:Init()
     self:SetTitle('')
+    self.colBackground = GCore.Lib:GetColor('background')
+    self.colHeader = GCore.Lib:GetColor('primary')
+    self.colHeaderText = color_white
 end
 
 function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
@@ -50,14 +53,27 @@ function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
     return self
 end
 
+function PANEL:SetHeaderColor(col,colText)
+    self.colHeader = col
+    self.colHeaderText = colText
+
+    return self
+end
+
+function PANEL:SetBackgroundColor(col)
+    self.colBackground = col
+
+    return self
+end
+
 function PANEL:Paint(w,h)
-    surface.SetDrawColor(0,0,0,200)
+    surface.SetDrawColor(self.colBackground)
     surface.DrawRect(0,0,w,h)
 
     if self.tblHeader then
-        surface.SetDrawColor(GCore.Lib:GetColor("black"))
+        surface.SetDrawColor(self.colHeader)
         surface.DrawRect(0,0,w,self.tblHeader.height)
-        draw.SimpleText(self.tblHeader.text,"Trebuchet24",self.tblHeader.marginLeft or 0,self.tblHeader.height/2,color_white,0,1)
+        draw.SimpleText(self.tblHeader.text,"Trebuchet24",self.tblHeader.marginLeft or 0,self.tblHeader.height/2,self.colHeaderText,0,1)
     end
 end
 

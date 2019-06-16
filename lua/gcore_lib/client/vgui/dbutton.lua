@@ -11,6 +11,8 @@ function PANEL:Init()
     self:SetText('')
     self:SetTextColor(color_white)
     self.strText = ""
+
+    self.col = GCore.Lib:GetColor('buttonColor')
 end
 
 function PANEL:SetDefaultText(strText,tblIcon)
@@ -26,6 +28,15 @@ function PANEL:SetDefaultText(strText,tblIcon)
     return self
 end
 
+function PANEL:SetBackgroundColor(default,to)
+    self.col = {
+        default = default,
+        to = to
+    }
+
+    return self
+end
+
 function PANEL:GetText()
     return self.strText
 end
@@ -35,8 +46,8 @@ function PANEL:Paint(w,h)
             self,
             "btnColor",
             { 
-                default = GCore.Lib:GetColor("lightBlack"),
-                to = GCore.Lib:GetColor("black")
+                default = self.col.default,
+                to = self.col.to
             },
             self:IsHovered(),
             7
