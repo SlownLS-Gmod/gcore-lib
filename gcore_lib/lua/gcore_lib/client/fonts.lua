@@ -19,9 +19,7 @@ function GCore.Lib:GetIcon(strType,intSize,unicode,tbl)
     elseif strType == "far" then
         tblFont['font'] = "Font Awesome 5 Free Regular"
     else
-        if !boolFontCreated then
-            return {text = "Type invalid", "Trebuchet18"}
-        end
+        return {text = "Type invalid", "Trebuchet18"}
     end
 
     local strFont = "GCore:Font:A:" .. strType .. ":" .. intSize
