@@ -23,6 +23,11 @@ GCore.Lib:DrawBlur( panel, int amount, int densité )
 GCore.Lib:LerpColor(panel btn, string nomUnique,array { default = Color(x,x,x,x), to = Color(x,x,x,x),boolean hovered? ( use btn:IsHovered() ), int Temps du lerp)
 ```
 
+# Exemple 
+![exemple](https://image.prntscr.com/image/TtjohLwmTgK_jjlttu6YRQ.png)
+
+Code : [Sample.lua](https://github.com/SlownLS/gcore-lib/blob/master/gcore_lib/lua/gcore_lib/client/sample.lua)
+
 # Informations
 
 Cette librairie est loin d'être parfaite, si vous avez des suggestions n'hésitez pas à me les données 
