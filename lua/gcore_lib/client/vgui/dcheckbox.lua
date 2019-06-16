@@ -22,7 +22,7 @@ function PANEL:SetLabel(strText,tblText)
     pLabel:SetTextColor(tblText.color or color_white)
     pLabel:SetMouseInputEnabled(true)
     pLabel.DoClick = function(l)
-        self:SetChecked(true)
+        self:Toggle()
     end
     pLabel:SizeToContents()
 
