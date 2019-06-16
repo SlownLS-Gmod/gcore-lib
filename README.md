@@ -32,7 +32,7 @@ Liste des fonctions sur le wiki : https://github.com/SlownLS/gcore-lib/wiki
 # Exemple 
 ![exemple](https://image.prntscr.com/image/TtjohLwmTgK_jjlttu6YRQ.png)
 
-Code : [Sample.lua](https://github.com/SlownLS/gcore-lib/blob/master/gcore_lib/lua/gcore_lib/client/sample.lua)
+Code : [Sample.lua](https://github.com/SlownLS/gcore-lib/blob/master/lua/gcore_lib/client/sample.lua)
 
 # Informations
 
