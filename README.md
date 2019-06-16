@@ -17,10 +17,14 @@ Cette librairie inclu le système de chaining sur les panels
         :MakePopup()
 ```
 # Fonctions utiles 
-Cette librairie à été conçu pour réunir plusieurs type de fonctions comme le blur, lerp
+Cette librairie à été conçu pour réunir plusieurs type de fonctions comme : 
+  - Blur
+  - LerpColor ( effet fade color1 à color2 )
+  - Ternary
 ```
 GCore.Lib:DrawBlur( panel, int amount, int densité )
 GCore.Lib:LerpColor(panel btn, string nomUnique,array { default = Color(x,x,x,x), to = Color(x,x,x,x),boolean hovered? ( use btn:IsHovered() ), int Temps du lerp)
+GCore.Lib:Ternary(condition,yes,no)
 ```
 
 # Exemple 
