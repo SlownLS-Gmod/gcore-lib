@@ -59,14 +59,14 @@ function PANEL:SetSearchBar(p,val)
             tblChildrens = self.pIconLayout:GetChildren() 
         end
 
-        PrintTable(tblChildrens)
-
         for k,v in pairs(tblChildrens or {}) do
             local str = v[val] or ""
             if (str:StartWith("#")) then str = str:sub(2) end
             str = language.GetPhrase(str)
 
-            if (string.find(str:lower(),strText:lower())) then
+            LocalPlayer():ChatPrint(strText)
+
+            if (string.find(str:lower(),strText:lower()) || string.len(strText) < 2 ) then
                 v:SetVisible(true)
             else
                 v:SetVisible(false)
