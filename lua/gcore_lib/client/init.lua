@@ -24,12 +24,18 @@ local tblEdits = {
         ['SetSize'] = true,
         ['SetPos'] = true,
         ['SetVisible'] = true,
+        ['SetTall'] = true,
+        ['Dock'] = true,
+        ['DockMargin'] = true,
     },
     ['DButton'] = {
         ['SetSize'] = true,
         ['SetPos'] = true,
         ['SetFont'] = true,
         ['SetText'] = true,
+        ['SetTall'] = true,
+        ['Dock'] = true,
+        ['DockMargin'] = true,        
     },
     ['DTextEntry'] = {
         ['SetSize'] = true,
@@ -52,6 +58,21 @@ local tblEdits = {
         ['SetChecked'] = true,
         ['SetValue'] = true,
         ['SetChecked'] = true,
+    },
+    ['DModelPanel'] = {
+        ['SetSize'] = true,
+        ['SetPos'] = true,
+        ['SetFOV'] = true,
+        ['SetCamPos'] = true,
+        ['SetLookAt'] = true,
+        ['DockMargin'] = true,
+        ['Dock'] = true,
+        ['SetVisible'] = true,
+    },
+    ['DScrollPanel'] = {
+        ['SetSize'] = true,
+        ['SetPos'] = true,
+        ['Dock'] = true,
     },
 }
 
@@ -93,5 +114,9 @@ end
 
 -- Init Post Entity
 hook.Add("InitPostEntity", "GCore:Lib:InitPostEntity:Vgui", function()
+    hook.Call("GCore:Lib:CanCreateVgui")
+end)
+
+concommand.Add("gcore_reload_vgui", function()
     hook.Call("GCore:Lib:CanCreateVgui")
 end)

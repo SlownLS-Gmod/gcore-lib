@@ -77,6 +77,21 @@ function PANEL:Paint(w,h)
     end
 end
 
+function PANEL:FadeIn(intTime)
+    self:SetAlpha(0)
+
+    self:AlphaTo(255,intTime,0)
+
+    return self
+end
+
+function PANEL:FadeOut(intTime,boolClose,cb)
+    self:AlphaTo(0,intTime,0,function()
+        if cb then cb() end
+        if boolClose then self:Remove() end
+    end)
+end
+
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DFrame",function()
     vgui.Register("GCore:DFrame",PANEL,"DFrame")
 end)
