@@ -68,9 +68,7 @@ function PANEL:SetSearchBar(p,val)
 
             if (string.find(str:lower(),strText:lower())) then
                 v:SetVisible(true)
-                LocalPlayer():ChatPrint('yes')
             else
-                LocalPlayer():ChatPrint('no')
                 v:SetVisible(false)
             end
 

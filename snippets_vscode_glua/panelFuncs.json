@@ -2254,7 +2254,7 @@
 
   "GCore:DCheckBox:SetLabel": {
     "prefix": "SetLabel",
-    "body": "SetLabel(${1:string text},${2:array {font='',color=''})$0",
+    "body": "SetLabel(${1:string text},${2:array {font='',color=''}})$0",
     "description": "(Client) Method: Set label of checkbox"
   },
   "GCore:DCheckBox:SetCheckBoxColor": {
@@ -2313,7 +2313,7 @@
 
   "GCore:DTextEntry:SetLabel": {
     "prefix": "SetLabel",
-    "body": "SetLabel(${1:string text},${2:array {font='',color=''})$0",
+    "body": "SetLabel(${1:string text},${2:array {type='fas',size=18,unicode=''}})$0",
     "description": "(Client) Method: Set label of dtextentry"
   },
   "GCore:DTextEntry:SetLabelColor": {
