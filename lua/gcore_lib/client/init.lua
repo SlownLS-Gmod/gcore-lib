@@ -45,6 +45,7 @@ local tblEdits = {
         ['SetPlaceholderText'] = true,
         ['SetPlaceholderColor'] = true,
         ['SetNumeric'] = true,
+        ['SetMultiline'] = true,
     },
     ['DCheckBox'] = {
         ['SetSize'] = true,
