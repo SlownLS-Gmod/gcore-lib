@@ -64,8 +64,6 @@ function PANEL:SetSearchBar(p,val)
             if (str:StartWith("#")) then str = str:sub(2) end
             str = language.GetPhrase(str)
 
-            LocalPlayer():ChatPrint(strText)
-
             if (string.find(str:lower(),strText:lower()) || string.len(strText) < 2 ) then
                 v:SetVisible(true)
             else
