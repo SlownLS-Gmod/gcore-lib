@@ -11,6 +11,8 @@ function PANEL:Init()
     self.colBackground = GCore.Lib:GetColor('background')
     self.colHeader = GCore.Lib:GetColor('primary')
     self.colHeaderText = color_white
+    self.boolRemoveOnEscape = false
+    self.intLastEscapePress = CurTime() + 0.2
 end
 
 function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
@@ -97,6 +99,18 @@ function PANEL:FadeOut(intTime,boolClose,cb)
         if cb then cb() end
         if boolClose then self:Remove() end
     end)
+end
+
+function PANEL:RemoveOnEscape(bool)
+    self.boolRemoveOnEscape = true 
+
+    return self
+end
+
+function PANEL:Think()
+    if self.boolRemoveOnEscape && input.IsKeyDown(KEY_ESCAPE) && CurTime() > self.intLastEscapePress then
+        self:Remove()
+    end
 end
 
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DFrame",function()

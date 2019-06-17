@@ -2225,6 +2225,11 @@
     "body": "UnPopup()$0",
     "description": "(Client) Method: Remove MakePopup"
   },
+  "GCore:DFrame:RemoveOnEscape": {
+    "prefix": "RemoveOnEscape",
+    "body": "RemoveOnEscape(${1:bool})$0",
+    "description": "(Client) Method: Remove frame on key ESCAPE is pressed"
+  },
   "GCore:DFrame:FadeIn": {
     "prefix": "FadeIn",
     "body": "FadeIn(${1:number time})$0",
