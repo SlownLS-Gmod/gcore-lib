@@ -50,6 +50,7 @@ function GCore.Lib.Sample:ChoosePlayer()
 	    :SetLookAt( Vector( 0, 0, 36 ) )
         :CanTurn(true)
 
+
     local btnValid = vgui.Create("GCore:DButton",frame)
         :SetSize(200,30)
         :SetPos(10,frame:GetTall()-30-10)

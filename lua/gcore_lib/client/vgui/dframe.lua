@@ -60,6 +60,13 @@ function PANEL:SetHeaderColor(col,colText)
     return self
 end
 
+function PANEL:UnPopup()
+    self:SetMouseInputEnabled(false)
+    self:SetKeyboardInputEnabled(false)
+
+    return self
+end
+
 function PANEL:SetBackgroundColor(col)
     self.colBackground = col
 

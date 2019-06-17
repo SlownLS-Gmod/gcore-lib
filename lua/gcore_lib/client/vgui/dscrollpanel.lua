@@ -13,8 +13,8 @@ end
 function PANEL:AddIconLayout(intX,intY)
     local pList = vgui.Create("DIconLayout",self)
     pList:Dock( FILL )
-    pList:SetSpaceY( intX or 0 )
-    pList:SetSpaceX( intY or 0 )
+    pList:SetSpaceX( intX or 0 )
+    pList:SetSpaceY( intY or 0 )
 
     self.pIconLayout = pList
 
