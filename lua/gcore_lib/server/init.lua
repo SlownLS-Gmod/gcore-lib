@@ -5,8 +5,8 @@
 ]]
 
 -- Load Font
-resource.AddFile("resource/fonts/font-awesome-regular.otf")
-resource.AddFile("resource/fonts/font-awesome-solid.otf")
+resource.AddFile("resource/fonts/font-awesome-regular.ttf")
+resource.AddFile("resource/fonts/font-awesome-solid.tff")
 
 -- Load Workshop
 resource.AddWorkshop('1774024252')
