@@ -5,12 +5,15 @@
 ]]
 
 -- Load Font
-resource.AddFile("resource/fonts/font-awesome-regular-400.otf")
-resource.AddFile("resource/fonts/font-awesome-solid-900.otf")
+resource.AddFile("resource/fonts/font-awesome-regular.otf")
+resource.AddFile("resource/fonts/font-awesome-solid.otf")
+
+-- Load Workshop
+resource.AddWorkshop('1774024252')
 
 -- Check Version
 local strUrlChecker = "https://pastebin.com/raw/tK1VK9fQ"
-local intCurrentVersion = "1.0.0"
+local intCurrentVersion = "1.0.1"
 GCore.Lib.VersionIsGood = GCore.Lib.VersionIsGood or true 
 
 function GCore.Lib:CheckVersion(pPlayer)
