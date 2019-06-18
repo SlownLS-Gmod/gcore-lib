@@ -13,6 +13,7 @@ function PANEL:Init()
     self.colHeaderText = color_white
     self.boolRemoveOnEscape = false
     self.intLastEscapePress = CurTime() + 0.2
+    self.intBorderRadius = 0
 end
 
 function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
@@ -76,8 +77,7 @@ function PANEL:SetBackgroundColor(col)
 end
 
 function PANEL:Paint(w,h)
-    surface.SetDrawColor(self.colBackground)
-    surface.DrawRect(0,0,w,h)
+    draw.RoundedBox(self.intBorderRadius,0,0,w,h,self.colBackground)
 
     if self.tblHeader then
         surface.SetDrawColor(self.colHeader)
@@ -111,6 +111,12 @@ function PANEL:Think()
     if self.boolRemoveOnEscape && input.IsKeyDown(KEY_ESCAPE) && CurTime() > self.intLastEscapePress then
         self:Remove()
     end
+end
+
+function PANEL:SetBorderRadius(intAmount)
+    self.intBorderRadius = intAmount
+
+    return self
 end
 
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DFrame",function()

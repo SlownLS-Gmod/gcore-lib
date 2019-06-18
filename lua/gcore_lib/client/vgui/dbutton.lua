@@ -11,6 +11,7 @@ function PANEL:Init()
     self:SetText('')
     self:SetTextColor(color_white)
     self.strText = ""
+    self.intBorderRadius = 0
 
     self.col = GCore.Lib:GetColor('buttonColor')
 end
@@ -53,8 +54,7 @@ function PANEL:Paint(w,h)
             7
         )
 
-    surface.SetDrawColor(col)
-    surface.DrawRect(0,0,w,h)
+    draw.RoundedBox(self.intBorderRadius,0,0,w,h,col)
 
     if self.tblIcon then
         surface.SetFont(self:GetFont())
@@ -65,6 +65,12 @@ function PANEL:Paint(w,h)
     else
         draw.SimpleText(self:GetText(),self:GetFont(),w/2,h/2,self:GetTextColor(),1,1)
     end
+end
+
+function PANEL:SetBorderRadius(intAmount)
+    self.intBorderRadius = intAmount
+
+    return self
 end
 
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DButton",function()

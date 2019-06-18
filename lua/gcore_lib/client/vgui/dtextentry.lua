@@ -10,6 +10,7 @@ function PANEL:Init()
     self:SetTextColor(color_white)
     self:SetCursorColor(color_white)
     self.lerpValid = 0
+    self.intBorderRadius = 0
 
     self:SetDrawLanguageID(false)
 
@@ -76,7 +77,7 @@ function PANEL:SetBackgroundColor(col)
 end
 
 function PANEL:Paint(w,h)
-    draw.RoundedBox(0,0,0,w,h,self.colBackground)
+    draw.RoundedBox(self.intBorderRadius,0,0,w,h,self.colBackground)
 
     local intLerpTime = 5
 
@@ -105,6 +106,13 @@ function PANEL:Paint(w,h)
 
     self:DrawTextEntryText( self:GetTextColor(), self:GetHighlightColor(), self:GetCursorColor() )
 end
+
+function PANEL:SetBorderRadius(intAmount)
+    self.intBorderRadius = intAmount
+
+    return self
+end
+
 
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DTextEntry",function()
     vgui.Register("GCore:DTextEntry",PANEL,"DTextEntry")

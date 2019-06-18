@@ -2240,6 +2240,11 @@
     "body": "FadeOut(${1:number time},${2:bool close},${3:function callback})$0",
     "description": "(Client) Method: Set fade out animation"
   },
+  "GCore:DFrame:SetBorderRadius": {
+    "prefix": "SetBorderRadius",
+    "body": "SetBorderRadius(${1:number radius})$0",
+    "description": "(Client) Method: Set border raduis of panel"
+  },
 
   "GCore:DButton:SetDefaultText": {
     "prefix": "SetDefaultText",
@@ -2250,6 +2255,11 @@
     "prefix": "SetBackgroundColor",
     "body": "SetBackgroundColor(${1:color default},${2:color to})$0",
     "description": "(Client) Method: Set background color of button"
+  },
+  "GCore:DButton:SetBorderRadius": {
+    "prefix": "SetBorderRadius",
+    "body": "SetBorderRadius(${1:number radius})$0",
+    "description": "(Client) Method: Set border raduis of panel"
   },
 
   "GCore:DCheckBox:SetLabel": {
@@ -2330,5 +2340,10 @@
     "prefix": "SetBackgroundColor",
     "body": "SetBackgroundColor(${1:color})$0",
     "description": "(Client) Method: Set background color of dtextentry"
-  }
+  },
+  "GCore:DTextEntry:SetBorderRadius": {
+    "prefix": "SetBorderRadius",
+    "body": "SetBorderRadius(${1:number radius})$0",
+    "description": "(Client) Method: Set border raduis of panel"
+  }  
 }
