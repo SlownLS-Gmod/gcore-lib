@@ -2243,7 +2243,7 @@
 
   "GCore:DButton:SetDefaultText": {
     "prefix": "SetDefaultText",
-    "body": "SetDefaultText(${1:string text},${2:array {type='',size=18,unicode=''})$0",
+    "body": "SetDefaultText(${1:string text},${2:array {type='',size=18,unicode=''}})$0",
     "description": "(Client) Method: Set default text button"
   },
   "GCore:DButton:SetBackgroundColor": {

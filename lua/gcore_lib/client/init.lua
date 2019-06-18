@@ -19,6 +19,9 @@ local tblEdits = {
         ['SetPos'] = true,
         ['SetTitle'] = true,
         ['SetDraggable'] = true,
+        ['MoveTo'] = true,
+        ['AlphaTo'] = true,
+        ['SetAlpha'] = true,
     },
     ['DPanel'] = {
         ['SetSize'] = true,
@@ -41,6 +44,7 @@ local tblEdits = {
         ['SetSize'] = true,
         ['SetPos'] = true,
         ['SetText'] = true,
+        ['SetTextColor'] = true,
         ['SetFont'] = true,
         ['SetPlaceholderText'] = true,
         ['SetPlaceholderColor'] = true,
