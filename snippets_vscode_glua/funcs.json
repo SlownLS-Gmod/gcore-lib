@@ -5511,6 +5511,6 @@
   "GCore.Lib:Ternary":{
     "prefix": "GCore.Lib:Ternary",
     "body": "GCore.Lib:Ternary(${1:condition}, ${2:if true}, ${3:if false})$0",
-    "description": "(Client) Function: Ternary for gmod"
+    "description": "(Shared) Function: Ternary for gmod"
   }
 }
