@@ -15,11 +15,17 @@ function PANEL:Init()
     self.intLastEscapePress = CurTime() + 0.2
     self.intBorderRadius = 0
     self.funcRemoveOnEscape = nil
+    self.boolDrawBlur = nil
 end
 
 function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
     if tblBtnClose && tblBtnClose.marginRight then
         self:ShowCloseButton(false)
+
+        tblBtnClose.color = tblBtnClose.color or {
+            default = GCore.Lib:GetColor("lightRed"),
+            to = GCore.Lib:GetColor("red"),
+        }
 
         local tblIcon = GCore.Lib:GetIcon("fas",18,"f057")
 
@@ -37,8 +43,8 @@ function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
                     btn,
                     "btnClose",
                     { 
-                        default = GCore.Lib:GetColor("lightRed"),
-                        to = GCore.Lib:GetColor("red")
+                        default = tblBtnClose.color.default,
+                        to = tblBtnClose.color.to
                     },
                     btn:IsHovered(),
                     7
@@ -78,6 +84,10 @@ function PANEL:SetBackgroundColor(col)
 end
 
 function PANEL:Paint(w,h)
+    if self.boolDrawBlur then
+        GCore.Lib:DrawBlur(self,self.boolDrawBlur[1],self.boolDrawBlur[2])
+    end
+
     draw.RoundedBox(self.intBorderRadius,0,0,w,h,self.colBackground)
 
     if self.tblHeader then
@@ -121,6 +131,12 @@ end
 
 function PANEL:SetBorderRadius(intAmount)
     self.intBorderRadius = intAmount
+
+    return self
+end
+
+function PANEL:DrawBlur(a,i)
+    self.boolDrawBlur = {a,i}
 
     return self
 end
