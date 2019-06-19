@@ -2261,6 +2261,21 @@
     "body": "SetBorderRadius(${1:number radius})$0",
     "description": "(Client) Method: Set border raduis of panel"
   },
+  "GCore:DButton:AddOptionMenu": {
+    "prefix": "AddOptionMenu",
+    "body": "AddOptionMenu(${1:array {name='x', func = function}}, ${2:bool right?})$0",
+    "description": "(Client) Method: Add option menu to button"
+  },
+  "GCore:DButton:SetTextPos": {
+    "prefix": "SetTextPos",
+    "body": "SetTextPos(${1:number x}, ${2:number y})$0",
+    "description": "(Client) Method: Set X,Y position of text dbutton"
+  },
+  "GCore:DButton:SetTextAlign": {
+    "prefix": "SetTextAlign",
+    "body": "SetTextAlign(${1:number align})$0",
+    "description": "(Client) Method: Set Alignement of text dbutton"
+  },
 
   "GCore:DCheckBox:SetLabel": {
     "prefix": "SetLabel",

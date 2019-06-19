@@ -14,6 +14,7 @@ function PANEL:Init()
     self.boolRemoveOnEscape = false
     self.intLastEscapePress = CurTime() + 0.2
     self.intBorderRadius = 0
+    self.funcRemoveOnEscape = nil
 end
 
 function PANEL:SetHeader(strText,intHeight, tblBtnClose, intMLeft )
@@ -84,6 +85,16 @@ function PANEL:Paint(w,h)
         surface.DrawRect(0,0,w,self.tblHeader.height)
         draw.SimpleText(self.tblHeader.text,"Trebuchet24",self.tblHeader.marginLeft or 0,self.tblHeader.height/2,self.colHeaderText,0,1)
     end
+
+    if self.boolRemoveOnEscape && input.IsKeyDown(KEY_ESCAPE) && CurTime() > self.intLastEscapePress then
+        gui.HideGameUI()
+        
+        if self.funcRemoveOnEscape then
+            self.funcRemoveOnEscape()
+        end
+
+        self:Remove()
+    end    
 end
 
 function PANEL:FadeIn(intTime)
@@ -101,16 +112,11 @@ function PANEL:FadeOut(intTime,boolClose,cb)
     end)
 end
 
-function PANEL:RemoveOnEscape(bool)
+function PANEL:RemoveOnEscape(bool,func)
     self.boolRemoveOnEscape = true 
+    self.funcRemoveOnEscape = func or nil
 
     return self
-end
-
-function PANEL:Think()
-    if self.boolRemoveOnEscape && input.IsKeyDown(KEY_ESCAPE) && CurTime() > self.intLastEscapePress then
-        self:Remove()
-    end
 end
 
 function PANEL:SetBorderRadius(intAmount)

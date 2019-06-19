@@ -12,6 +12,7 @@ function PANEL:Init()
     self:SetTextColor(color_white)
     self.strText = ""
     self.intBorderRadius = 0
+    self.intTextAlign = 1
 
     self.col = GCore.Lib:GetColor('buttonColor')
 end
@@ -43,6 +44,14 @@ function PANEL:GetText()
 end
 
 function PANEL:Paint(w,h)
+    if !self.tblTextPos then
+        self.tblTextPos = {w/2,h/2}
+    end
+
+    if !self.tblTextPos[2] then
+        self.tblTextPos[2] = h/2
+    end
+
     local col = GCore.Lib:LerpColor(
             self,
             "btnColor",
@@ -60,10 +69,10 @@ function PANEL:Paint(w,h)
         surface.SetFont(self:GetFont())
         local intW, intH = surface.GetTextSize(self:GetText())
 
-        draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,w/2-intW,h/2,self:GetTextColor(),1,1)
+        draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,w/2-(intW/2)-15,h/2,self:GetTextColor(),1,1)
         draw.SimpleText(self:GetText(),self:GetFont(),w/2,h/2,self:GetTextColor(),1,1)
     else
-        draw.SimpleText(self:GetText(),self:GetFont(),w/2,h/2,self:GetTextColor(),1,1)
+        draw.SimpleText(self:GetText(),self:GetFont(),self.tblTextPos[1],self.tblTextPos[2],self:GetTextColor(),self.intTextAlign,1)
     end
 end
 
@@ -71,6 +80,50 @@ function PANEL:SetBorderRadius(intAmount)
     self.intBorderRadius = intAmount
 
     return self
+end
+
+function PANEL:SetTextAlign(intAlign)
+    self.intTextAlign = intAlign
+    return self
+end
+
+function PANEL:SetTextPos(intX,intY)
+    if !self.tblTextPos then self.tblTextPos = {} end
+    
+    self.tblTextPos[1] = intX
+
+    if intY then
+        self.tblTextPos[2] = intY
+    end
+
+    return self
+end
+
+function PANEL:AddOptionMenu(tblOption,boolRightClick)
+    self.tblOptions = tblOption
+    self.boolTblOptionOnRightClick = boolRightClick
+
+    return self
+end
+
+function PANEL:DoRightClick()
+    if self.boolTblOptionOnRightClick then
+        local menu = DermaMenu()
+        for k,v in SortedPairs(self.tblOptions or {}) do
+            menu:AddOption(v.name,v.func)
+        end
+        menu:Open()
+    end
+end
+
+function PANEL:DoClick()
+    if !self.boolTblOptionOnRightClick then
+        local menu = DermaMenu()
+        for k,v in SortedPairs(self.tblOptions or {}) do
+            menu:AddOption(v.name,v.func)
+        end
+        menu:Open()
+    end
 end
 
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DButton",function()

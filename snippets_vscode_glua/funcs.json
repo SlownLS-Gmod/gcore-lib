@@ -5512,5 +5512,10 @@
     "prefix": "GCore.Lib:Ternary",
     "body": "GCore.Lib:Ternary(${1:condition}, ${2:if true}, ${3:if false})$0",
     "description": "(Shared) Function: Ternary for gmod"
+  },
+  "GCore.Lib:Confirm":{
+    "prefix": "GCore.Lib:Confirm",
+    "body": "GCore.Lib:Confirm(${1:string header}, ${2:string text}, ${3:array {blur= false}},${4:func callbackAccept},${5:func callbackDecline})$0",
+    "description": "(Client) Function: Call confirm menu"
   }
 }

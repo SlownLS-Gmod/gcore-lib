@@ -22,6 +22,7 @@ local tblEdits = {
         ['MoveTo'] = true,
         ['AlphaTo'] = true,
         ['SetAlpha'] = true,
+        ['SetSizable'] = true,
     },
     ['DPanel'] = {
         ['SetSize'] = true,
