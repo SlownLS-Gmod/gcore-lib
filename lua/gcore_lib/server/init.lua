@@ -13,7 +13,7 @@ resource.AddWorkshop('1774024252')
 
 -- Check Version
 local strUrlChecker = "https://pastebin.com/raw/tK1VK9fQ"
-local intCurrentVersion = "1.0.2"
+local intCurrentVersion = "1.0.3"
 GCore.Lib.VersionIsGood = GCore.Lib.VersionIsGood or true 
 
 function GCore.Lib:CheckVersion(pPlayer)
