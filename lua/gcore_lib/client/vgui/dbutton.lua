@@ -69,8 +69,14 @@ function PANEL:Paint(w,h)
         surface.SetFont(self:GetFont())
         local intW, intH = surface.GetTextSize(self:GetText())
 
-        draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,w/2-(intW/2)-15,h/2,self:GetTextColor(),1,1)
-        draw.SimpleText(self:GetText(),self:GetFont(),w/2,h/2,self:GetTextColor(),1,1)
+
+        local intIconPosX = w/2-(intW/2)-10
+        if intW == 0 then
+            intIconPosX = w/2
+        end
+
+        draw.SimpleText(self.tblIcon.icon.text,self.tblIcon.icon.font,intIconPosX,h/2,self:GetTextColor(),1,1)
+        draw.SimpleText(self:GetText(),self:GetFont(),w/2 + 10,h/2,self:GetTextColor(),1,1)
     else
         draw.SimpleText(self:GetText(),self:GetFont(),self.tblTextPos[1],self.tblTextPos[2],self:GetTextColor(),self.intTextAlign,1)
     end

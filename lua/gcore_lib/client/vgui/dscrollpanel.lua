@@ -83,6 +83,12 @@ function PANEL:SetSearchBar(p,val)
     return self
 end
 
+function PANEL:SetHideButtons(bool)
+    self:GetVBar():SetHideButtons(true)
+
+    return self
+end
+
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DScrollPanel",function()
     vgui.Register("GCore:DScrollPanel",PANEL,"DScrollPanel")
 end)

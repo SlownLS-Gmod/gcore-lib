@@ -59,6 +59,21 @@ function PANEL:CanTurn(bool)
     return self
 end
 
+function PANEL:CenterModel()
+    local mn, mx = self.Entity:GetRenderBounds()
+    local size = 0
+    size = math.max( size, math.abs( mn.x ) + math.abs( mx.x ) )
+    size = math.max( size, math.abs( mn.y ) + math.abs( mx.y ) )
+    size = math.max( size, math.abs( mn.z ) + math.abs( mx.z ) )
+
+    self:SetFOV( 45 )
+    self:SetCamPos( Vector( size, size, size ) )
+    self:SetLookAt( ( mn + mx ) * 0.5 )
+
+    -- Merci le wiki
+    return self
+end
+
 hook.Add("GCore:Lib:CanCreateVgui","GCore:Lib:DModelPanel",function()
     vgui.Register("GCore:DModelPanel",PANEL,"DModelPanel")
 end)

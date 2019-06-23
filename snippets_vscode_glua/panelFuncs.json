@@ -2303,6 +2303,11 @@
     "body": "CanTurn(${1:bool true})$0",
     "description": "(Client) Method: Can turn model with mouse"
   },
+  "GCore:DModelPanel:CenterModel": {
+    "prefix": "CanTurn",
+    "body": "CenterModel()$0",
+    "description": "(Client) Method: Center model"
+  },
 
   "GCore:DRadio:Select": {
     "prefix": "Select",
@@ -2334,6 +2339,11 @@
     "prefix": "SetSearchBar",
     "body": "SetSearchBar(${1:panel DTextEntry},${2:string value})$0",
     "description": "(Client) Method: Set SearchBar to DScrollPanel"
+  },
+  "GCore:DScrollPanel:SetHideButtons": {
+    "prefix": "SetHideButtons",
+    "body": "SetHideButtons(${1:bool true})$0",
+    "description": "(Client) Method: Set Hide buttons of scrollbar to DScrollPanel"
   },
 
   "GCore:DTextEntry:SetLabel": {
