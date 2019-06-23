@@ -24,9 +24,9 @@ function GCore.Lib:GetIcon(strType,intSize,unicode,tbl)
 
     local strFont = "GCore:Font:A:" .. strType .. ":" .. intSize
 
-    if !tblFontsCreated[strFont] then        
+    if !tblFontsCreated[strFont..intSize] then        
         surface.CreateFont(strFont,tblFont)
-        tblFontsCreated[strFont] = true 
+        tblFontsCreated[strFont..intSize] = true 
     end
 
     return {
@@ -36,7 +36,9 @@ function GCore.Lib:GetIcon(strType,intSize,unicode,tbl)
 end
 
 function GCore.Lib:GetFont(intSize,strType,intWeight)
-    local strFont = "GCore:Font:" .. strType .. ":" .. intSize
+    intWeight = intWeight or 500
+
+    local strFont = "GCore:Font:" .. strType .. ":" .. intSize .. ":" .. intWeight
 
     if !tblFontsCreated[strFont] then            
         surface.CreateFont(strFont,{

@@ -83,7 +83,7 @@ function PANEL:SetBackgroundColor(col)
     return self
 end
 
-function PANEL:Paint(w,h)
+function PANEL:DefaultPaint(w,h)
     if self.boolDrawBlur then
         GCore.Lib:DrawBlur(self,self.boolDrawBlur[1],self.boolDrawBlur[2])
     end
@@ -104,7 +104,11 @@ function PANEL:Paint(w,h)
         end
 
         self:Remove()
-    end    
+    end 
+end
+
+function PANEL:Paint(w,h)
+    self:DefaultPaint(w,h)
 end
 
 function PANEL:FadeIn(intTime)
